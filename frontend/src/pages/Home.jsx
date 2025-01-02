@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react'
 import Spinner from '../components/Spinner'
-import { use } from 'react'
 import { Link } from 'react-router-dom'
 import { AiOutlineEdit } from 'react-icons/ai'
 import {BsInfoCircle} from 'react-icons/bs'
@@ -13,7 +12,7 @@ const Home = () => {
       setLoading(true)
       const res = await fetch('http://localhost:5555/books')
       const data = await res.json()
-      console.log("datas: ",data)
+      console.log("datas: ", data)
       setBooks(data)
       setLoading(false)
     }
@@ -24,7 +23,7 @@ const Home = () => {
     <div className='p-4'>
       <div className="flex justify-between items-center ">
         <h1 className='text-3xl my-8'>Book List</h1>
-        <Link to={'/create'}>
+        <Link to={'/books/create'}>
           <MdOutlineAddBox  className='text-sky-800 text-4xl mr-4'/> 
         </Link>
       </div>
