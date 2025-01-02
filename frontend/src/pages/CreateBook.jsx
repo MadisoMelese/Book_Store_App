@@ -2,8 +2,10 @@ import React, { useState } from 'react'
 import Spinner from '../components/Spinner'
 import BackButton from '../components/BackButton'
 import { useNavigate } from 'react-router-dom'
+import { useSnackbar } from 'notistack'
 
 const CreateBook = () => {
+  const {enqueueSnackbar} = useSnackbar()
   const navigate = useNavigate()
   const [title, setTitle] = useState('')
   const [author, setAuthor] = useState('')
@@ -28,6 +30,9 @@ const CreateBook = () => {
         throw new Error(data.message)
       }
       setLoading(false)
+
+      enqueueSnackbar('Book created successfully', {variant: 'success'})
+      
       navigate('/')
     } catch (error) {
       setError(error.message)
@@ -35,7 +40,7 @@ const CreateBook = () => {
     }
   }
   return (
-    <div>
+    <div className='p-8'>
       <BackButton />
       <h1 className='text-2xl font-bold my-8'>Create Book</h1>
       {loading && <Spinner />}

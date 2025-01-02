@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react'
 import BackButton from '../components/BackButton'
 import Spinner from '../components/Spinner'
 import { useParams } from 'react-router-dom'
-
 const ShowBook = () => {
   const { id } = useParams()
   const [book, setBook] = useState({})

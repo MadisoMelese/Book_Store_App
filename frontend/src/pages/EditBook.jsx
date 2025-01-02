@@ -2,8 +2,9 @@ import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import Spinner from '../components/Spinner';
 import BackButton from '../components/BackButton';
-
+import { useSnackbar } from 'notistack';
 const EditBook = () => {
+  const { enqueueSnackbar } = useSnackbar();
   const { id } = useParams();
   const navigate = useNavigate();
   const [title, setTitle] = useState('');
@@ -51,7 +52,10 @@ const EditBook = () => {
       if (!res.ok) {
         throw new Error(data.message);
       }
+      setLoading(false);
+      enqueueSnackbar('Book updated successfully', { variant: 'success' });
       navigate('/');
+
     } catch (error) {
       setError(error.message);
     } finally {
