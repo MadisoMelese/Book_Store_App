@@ -37,6 +37,7 @@ const EditBook = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    
     setLoading(true);
     try {
       const res = await fetch(`http://localhost:5555/books/${id}`, {
