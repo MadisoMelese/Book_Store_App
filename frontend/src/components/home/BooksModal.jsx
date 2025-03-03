@@ -17,7 +17,9 @@ const BooksModal = ({book, onClose}) => {
             <div className="flex justify-start gap-x-4 text-xl">
             <span className="font-bold text-xl">Title:</span> {book.title}
               </div>
-            <div className="text-xl"> <span className="text-xl text-black font-bold">Description: </span>This Book prepared for both beginners and advance level programmer to guidline how to use all basic things like syntax, functions, conditional rendering and so on ...</div>
+            <div className="text-xl"> <span className="text-xl text-black font-bold">Description: 
+            </span>This Book prepared for both beginners and advance level programmer to guidline how to use 
+              all basic things like syntax, functions, conditional rendering</div>
             <div className="flex text-2xl mt-6">
               <BiUserCircle className="text-4xl text-blue-500"/> 
               <span>  {book.author} 
